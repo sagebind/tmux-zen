@@ -63,7 +63,7 @@ This journey isn't meant to be a solo experience. Feel free to ask me [@coderste
 
 [mit]:            http://opensource.org/licenses/MIT
 [author]:         http://github.com/coderstephen
-[contributors]:   https://github.com/coderstephen/pkg-tmux-zen/graphs/contributors
+[contributors]:   https://github.com/coderstephen/tmux-zen/graphs/contributors
 [omf-link]:       https://www.github.com/oh-my-fish/oh-my-fish
 
 [license-badge]:  https://img.shields.io/badge/license-MIT-007EC7.svg?style=flat-square
