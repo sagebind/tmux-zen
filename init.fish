@@ -5,6 +5,11 @@ function init --on-event init_tmux-zen
     return 1
   end
 
+  # If we're running in a superuser shell, do nothing.
+  if test $USER = root
+    return 0
+  end
+
   set -q __tmux_session_name
     or set -U __tmux_session_name local
 
