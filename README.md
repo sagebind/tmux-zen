@@ -6,7 +6,8 @@
 <br>
 
 # tmux zen
-Plugin for [Oh My Fish][omf-link] to tap into the zen power of [tmux](https://tmux.github.io).
+Plugin for [Oh My Fish][omf] to tap into the zen power of [tmux].
+
 
 ## Install
 You will first need to install tmux. The best way is usually with your operating system's package manager. Otherwise, you can download and compile tmux yourself:
@@ -18,13 +19,14 @@ $ ./configure; and make
 $ sudo make install
 ```
 
-Now you can install tmux zen using [Oh My Fish][omf-link]:
+Now you can install tmux zen using [Oh My Fish][omf]:
 
 ```fish
 $ omf install tmux-zen
 ```
 
 That's it! Prepare yourself for an epic journey to ultimate terminal zen.
+
 
 ## The path to zen
 Tmux is a terminal multiplexer geared toward developers and admins who regulary make use of the terminal. Fish (and the Oh My Fish framework) is a friendly interactive shell that is an intuitive alternative to the old and confusing syntax of bash-like shells.
@@ -44,26 +46,38 @@ In tmux zen, portals are cheap. If you close your terminal app, you might normal
 The workflow becomes even closer to zen when using multiple portals. Go ahead and try to open two, three, or more portals. You will notice that all of the portals provide a view into our same session each time, but each can view a different window or the same window. This allows us to select whatever windows we need to access simultaneously by using multiple portals and switching to the desired window in each.
 
 ### Preparing our workspace
-It can be very helpful to run some commands each time the session is created for the first time. This could be startup scripts, or scripts that open certain programs in certain windows. We can set these commands by creating a fish function called `tmux_init`. Tmux zen will call this function once, when the session is first created. For example, here's a script that will open Vim in its own window:
+It can be very helpful to run some commands each time the session is created for the first time. This could be startup scripts, or scripts that open certain programs in certain windows. We can set these commands by creating a fish function that listens for the `zen.init` [event]. Tmux zen will trigger this event once, when the session is first created. For example, here's a script that will open Vim in its own window:
 
 ```fish
-function tmux_init
-    tmux new-window vim
+function my-zen-init --on-event zen.init
+    zen tmux new-window vim
 end
 ```
 
 Add this to your `config.fish` (or in some other setup script) and next time we start our session, a Vim window will be created for us.
 
+
+## Configuration
+Tmux zen has a few configuration options that you can customize:
+
+- `tmux-bin`: Specify a specific tmux binary to execute tmux commands with.
+- `events.init`: A Fish script to also run on the `zen.init` event.
+
+See `zen config --help` for help on how to modify these settings.
+
+
 ## Need some guidance?
 This journey isn't meant to be a solo experience. Feel free to ask me [@coderstephen](http://twitter.com/coderstephen) or any other tmux guru for guidance.
 
-# License
+
+## License
 [MIT][mit] © [coderstephen][author] et [al][contributors]
 
 
 [mit]:            http://opensource.org/licenses/MIT
 [author]:         http://github.com/coderstephen
 [contributors]:   https://github.com/coderstephen/tmux-zen/graphs/contributors
-[omf-link]:       https://github.com/oh-my-fish/oh-my-fish
-
+[omf]:            https://github.com/oh-my-fish/oh-my-fish
+[event]:          http://fishshell.com/docs/current/index.html#event
+[tmux]:           https://tmux.github.io
 [license-badge]:  https://img.shields.io/badge/license-MIT-007EC7.svg?style=flat-square
