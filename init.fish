@@ -1,5 +1,10 @@
 # Initialize the current fish session and connect to the tmux session.
 function init --on-event init_tmux-zen
+  # If we're not running in an interactive terminal, do nothing.
+  if begin; not isatty; or not status --is-interactive; end
+    return 0
+  end
+
   # If we're running in a superuser shell, do nothing.
   if test $USER = root
     return 0
