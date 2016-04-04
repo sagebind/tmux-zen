@@ -60,6 +60,7 @@ Add this to your `config.fish` (or in some other setup script) and next time we 
 ## Configuration
 Tmux zen has a few configuration options that you can customize:
 
+- `session-name`: The name to use for the shared tmux session.
 - `tmux-bin`: Specify a specific tmux binary to execute tmux commands with.
 - `events.init`: A Fish script to also run on the `zen.init` event.
 

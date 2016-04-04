@@ -16,6 +16,9 @@ Commands
   $b"help"$n
     Displays this help message.
 
+  $b"notify"$n $u"message"$n
+    Flash a message in the tmux status bar.
+
   $b"tmux"$n [$b"-2CluvV"$n] [$b"-c"$n $u"shell-command"$n] [$b"-f"$n $u"file"$n] [$b"-L"$n $u"socket-name"$n] [$b"-S"$n $u"socket-path"$n] [$u"command"$n [$u"flags"$n]]
     Runs the configured tmux application along with any other arguments. The
     binary that is executed is determined by the `tmux-bin` config option.
