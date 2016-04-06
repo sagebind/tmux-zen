@@ -20,7 +20,7 @@ function zen -d "Manages your tmux zen environment" -a command
     # Pass through commands to tmux.
     case tmux
       set -l tmux_bin (config tmux-zen --get tmux-bin --default tmux)
-      eval $tmux_bin $argv
+      eval $tmux_bin "$argv"
 
     case '*'
       echo "Unknown command `$command'." >&2
