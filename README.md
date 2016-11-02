@@ -68,16 +68,16 @@ See `zen config --help` for help on how to modify these settings.
 
 
 ## Need some guidance?
-This journey isn't meant to be a solo experience. Feel free to ask me [@coderstephen](http://twitter.com/coderstephen) or any other tmux guru for guidance.
+This journey isn't meant to be a solo experience. Feel free to ask me [@sagebind](http://twitter.com/sagebind) or any other tmux guru for guidance.
 
 
 ## License
-[MIT][mit] © [coderstephen][author] et [al][contributors]
+[MIT][mit] © [Stephen Coakley][author] et [al][contributors]
 
 
 [mit]:            http://opensource.org/licenses/MIT
-[author]:         http://github.com/coderstephen
-[contributors]:   https://github.com/coderstephen/tmux-zen/graphs/contributors
+[author]:         http://github.com/sagebind
+[contributors]:   https://github.com/sagebind/tmux-zen/graphs/contributors
 [omf]:            https://github.com/oh-my-fish/oh-my-fish
 [event]:          http://fishshell.com/docs/current/index.html#event
 [tmux]:           https://tmux.github.io
