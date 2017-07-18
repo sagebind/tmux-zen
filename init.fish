@@ -9,6 +9,13 @@ if test $USER = root
   exit
 end
 
+# Register the default init hooks early (before we emit the first
+# initialization event.)
+function zen.init --on-event zen.init
+  config tmux-zen --query events.init
+    and eval (config tmux-zen --get events.init)
+end
+
 # Connect to the TMUX session if it exists, or create it if it doesn't.
 if not set -q TMUX
   set -l tmux_bin (config tmux-zen --get tmux-bin --default tmux)
@@ -32,7 +39,3 @@ if not set -q ZEN_SESSION_INITIALIZED
   emit zen.init
 end
 
-function zen.init --on-event zen.init
-  config tmux-zen --query events.init
-    and eval (config tmux-zen --get events.init)
-end
