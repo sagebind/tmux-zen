@@ -1,6 +1,6 @@
 # Initialize the current fish session and connect to the tmux session.
 # If we're not running in an interactive terminal, do nothing.
-if begin; not isatty; or not status --is-interactive; end
+if begin; not isatty; or not status --is-interactive; or test -n "$INSIDE_EMACS"; end
   exit
 end
 
@@ -9,13 +9,20 @@ if test $USER = root
   exit
 end
 
+# Register the default init hooks early (before we emit the first
+# initialization event.)
+function zen.init --on-event zen.init
+  config tmux-zen --query events.init
+    and eval (config tmux-zen --get events.init)
+end
+
 # Connect to the TMUX session if it exists, or create it if it doesn't.
 if not set -q TMUX
   set -l tmux_bin (config tmux-zen --get tmux-bin --default tmux)
   set -l session_name (config tmux-zen --get session-name --default local)
 
   if eval "$tmux_bin has-session -t $session_name"
-    exec env -- $tmux_bin new-session -t $session_name \; set destroy-unattached on
+    exec env -- $tmux_bin new-session -t $session_name \; set destroy-unattached on \; new-window
   else
     exec env -- $tmux_bin new-session -s $session_name
   end
@@ -32,7 +39,3 @@ if not set -q ZEN_SESSION_INITIALIZED
   emit zen.init
 end
 
-function zen.init --on-event zen.init
-  config tmux-zen --query events.init
-    and eval (config tmux-zen --get events.init)
-end
