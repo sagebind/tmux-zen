@@ -4,6 +4,11 @@ if begin; not isatty; or not status --is-interactive; or test -n "$INSIDE_EMACS"
   exit
 end
 
+# If we're running in a dumb terminal, do nothing
+if test $TERM = "dumb"
+  exit
+end
+
 # If we're running in a superuser shell, do nothing.
 if test $USER = root
   exit
