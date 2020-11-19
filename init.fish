@@ -28,7 +28,7 @@ if not set -q TMUX
   set -l session_name (config tmux-zen --get session-name --default local)
 
   if eval "$tmux_bin has-session -t $session_name 2> /dev/null"
-    exec env -- $tmux_bin -f $tmux_conf new-session -t $session_name \; set destroy-unattached on \; new-window
+    exec env -- $tmux_bin -f $tmux_conf new-session -t $session_name \; set destroy-unattached on \;
   else
     exec env -- $tmux_bin -f $tmux_conf new-session -s $session_name
   end
