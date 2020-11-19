@@ -21,6 +21,7 @@ Commands
 
   $b"tmux"$n [$b"-2CluvV"$n] [$b"-c"$n $u"shell-command"$n] [$b"-f"$n $u"file"$n] [$b"-L"$n $u"socket-name"$n] [$b"-S"$n $u"socket-path"$n] [$u"command"$n [$u"flags"$n]]
     Runs the configured tmux application along with any other arguments. The
-    binary that is executed is determined by the `tmux-bin` config option.
+    binary that is executed is determined by the `tmux-bin` config option. The
+    config to use is determined by the `tmux-conf` config option.
 "
 end
