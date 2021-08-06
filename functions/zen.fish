@@ -7,7 +7,7 @@ function zen -d "Manages your tmux zen environment" -a command
 
     case notify
       if not count $argv > /dev/null
-        cat ^/dev/null | read -l line
+        cat 2>/dev/null | read -l line
         set argv[1] "$line"
       end
 
